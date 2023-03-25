@@ -32,5 +32,5 @@ describe('Weather', () => {
     await weather.load('London');
     expect(weather.getWeatherData().name).toEqual('London');
   });
-  
+
 });
