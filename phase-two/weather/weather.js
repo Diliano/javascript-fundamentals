@@ -11,6 +11,10 @@ class Weather {
     const weatherData = await this.weatherClient.fetchWeatherData(city);
     this.weatherData = weatherData;
   };
+
+  getWeatherData() {
+    return this.weatherData;
+  };
  
 };
 

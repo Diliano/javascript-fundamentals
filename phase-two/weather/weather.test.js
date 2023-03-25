@@ -21,4 +21,16 @@ describe('Weather', () => {
     expect(mockWeatherClient.fetchWeatherData).toHaveBeenCalledWith('London');
   });
 
+  it('returns weather data for the loaded city', async () => {
+    const mockWeatherClient = {
+      fetchWeatherData: jest.fn(),
+    };
+    mockWeatherClient.fetchWeatherData.mockResolvedValueOnce({
+      name: 'London',
+    });
+    const weather = new Weather(mockWeatherClient);
+    await weather.load('London');
+    expect(weather.getWeatherData().name).toEqual('London');
+  });
+  
 });
